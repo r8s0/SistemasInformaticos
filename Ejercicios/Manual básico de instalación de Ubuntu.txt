@@ -1,0 +1,32 @@
+MANUAL BÁSICO DE INSTALACIÓN DE UBUNTU
+
+-----------------------------CREACIÓN DE LA MÁQUINA VIRTUAL-----------------------------
+
+****************************** Nombre y sistema operativo ******************************
+1) Nombre - Establece el nombre que deseas que tenga tu máquina virtual
+2) Carpeta - Establecer la ruta donde quieres almacenar tu máquina virtual
+3) Imagen ISO - Buscar el archivo ISO del sistema operativo Ubuntu que quieres instalar
+4) Resto de opciones del apartado "Nombre y sistema operativo" dejarlas por defecto
+5) Activar casilla "Omitir instalación desatendida"
+****************************************************************************************
+
+******************************* Instalación desatendida ********************************
+6) NO TOCAR NINGUNA OPCIÓN AQUÍ
+****************************************************************************************
+
+************************************** Hardware ****************************************
+7) Memoria base - Establecer la memoria RAM que deseas que tenga tu máquina virtual 
+(RAM mínima = 4096 MB)
+8) Procesadores - Establecer el número de núcleos que deseas que tenga tu máquina 
+virtual (Núcleos mínimos = 2)
+9) Desmarcar "Habilitar EFI" si aparece habilitada
+****************************************************************************************
+
+************************************* Disco Duro ***************************************
+7) Ubicación y tamaño del archivo de disco - Establecer la ruta donde quieres guardar
+tu disco virtual creado y el espacio que deseas que tenga. 
+(Espacio mínimo = 25 GB)
+8) Resto de opciones de este apartado dejarlas por defecto
+****************************************************************************************
+
+----------------------------------------------------------------------------------------
