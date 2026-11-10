@@ -1,6 +1,6 @@
 MANUAL BÁSICO DE INSTALACIÓN DE UBUNTU
 
------------------------------CREACIÓN DE LA MÁQUINA VIRTUAL-----------------------------
+---------------------------- CREACIÓN DE LA MÁQUINA VIRTUAL ----------------------------
 
 ****************************** Nombre y sistema operativo ******************************
 1) Nombre - Establece el nombre que deseas que tenga tu máquina virtual
@@ -27,6 +27,45 @@ virtual (Núcleos mínimos = 2)
 tu disco virtual creado y el espacio que deseas que tenga. 
 (Espacio mínimo = 25 GB)
 8) Resto de opciones de este apartado dejarlas por defecto
+****************************************************************************************
+
+----------------------------------------------------------------------------------------
+
+--------------------------------- INSTALACIÓN DE UBUNTU --------------------------------
+
+****************************************************************************************
+1) Una vez creada la máquina virtual, ejecutarla para proceder a la instalación del
+sistema operativo. Cargará la pantalla del sistema operativo con dos opciones y tendrá 
+que seleccionar la opción "Try or Install Ubuntu". Esperar hasta que cargue el sistema
+operativo y salga la pantalla para elegir idioma.
+2) Deshabilitar la red en Máquina > Red.
+3) Elegir el idioma que quieres que posea tu sistema operativo. Clicar "Next".
+4) En accesibilidad, clicar "Next".
+5) Elegir la región del teclado, es decir, si es teclado UK, Spanish (con caracteres
+españoles), etc. Clicar "Next".
+6) Seleccionar "Install Ubuntu". Clicar "Next".
+7) Elegir si en la instalación se quiere ayuda paso a paso, usuarios que ya tienen un 
+sistema operativo mediante un archivo autoinstall.yaml o usuarios que poseen un 
+autoinstall via landscape. En nuestro caso, seleccionamos la primera opción. Clicar
+"Next".
+8) Elegir las aplicaciones que se quieren instalar, si las esenciales o una lista más 
+extendida. Clicar "Next".
+9) No marcar ninguna casilla de "third-party apps" y clicar "Next".
+10) Elegir como se quiere la instalación, si una instalación limpia de Ubuntu o una
+instalación manual donde se puede personalizar el setup del disco. Clicar "Next".
+11) Elegir si se quiere encriptar el sistema, es decir, tener una contraseña al encender
+la máquina virtual. Clicar"Next".
+12) Crear cuenta introduciendo usuario, nombre que quieres que tenga el ordenador,
+contraseña, y activar la casilla de "Requerir contraseña para iniciar sesión" si se
+desea tener un método de inicio de sesión para reforzar la seguridad del equipo. Clicar
+"Next".
+13) Seleccionar localidad y zona horaria de tu ubicación. Clicar "Next".
+14) Aparecerá una pantalla con las elecciones que has hecho. Una vez revisadas, clique
+en "Install". A continuación, aparecerá una pantalla donde procederá a instalarse el
+sistema operativo con las aplicaciones y opciones seleccionadas. Esperar hasta que 
+finalice.
+15) Una vez finalizado, clicar en "Restart now". El equipo se reiniciará y el sistema 
+operativo estará listo para usarse.
 ****************************************************************************************
 
 ----------------------------------------------------------------------------------------
