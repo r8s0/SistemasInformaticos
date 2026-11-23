@@ -1,0 +1,118 @@
+
+2. Pasos realizados y decisiones de configuración
+
+La instalación se realizó sobre una única unidad de almacenamiento virtual de 50 GB en VirtualBox, siguiendo un esquema de particionado compartido.
+
+Fase 1: Creación de la máquina virtual e instalación de Windows 10
+
+1. Configuración inicial de hardware virtual: Se creó una máquina virtual en VirtualBox asignando un disco duro virtual de 50 GB, 4 GB de memoria RAM y 2 núcleos de CPU.
+
+(Añadir fotos)
+
+2. Instalación de Windows 10.
+
+(Añadir fotos)
+
+3. Preparación para el arranque dual:
+	• Se verificó el estado del Inicio rápido en Panel de control > Opciones de energía (y mediante el comando powercfg /a) para asegurar que el sistema de archivos NTFS quedara completamente desmontado al apagar y evitar bloqueos de lectura/escritura desde Linux.
+	• Desde la herramienta Administración de discos de Windows, se seleccionó la partición principal (C:) y se ejecutó la opción Reducir volumen en 25.600 MB (25 GB). Se dejó ese espacio resultante como No asignado (sin formato) para que el instalador de Ubuntu lo gestionara automáticamente.
+
+(Añadir foto disco partición)
+
+
+Fase 2: Instalación de Ubuntu 26.04 LTS
+
+MANUAL BÁSICO DE INSTALACIÓN DE UBUNTU
+
+---------------------------- CREACIÓN DE LA MÁQUINA VIRTUAL ----------------------------
+
+****************************** Nombre y sistema operativo ******************************
+1) Nombre - Establece el nombre que deseas que tenga tu máquina virtual
+2) Carpeta - Establecer la ruta donde quieres almacenar tu máquina virtual
+3) Imagen ISO - Buscar el archivo ISO del sistema operativo Ubuntu que quieres instalar
+4) Resto de opciones del apartado "Nombre y sistema operativo" dejarlas por defecto
+5) Activar casilla "Omitir instalación desatendida"
+****************************************************************************************
+
+******************************* Instalación desatendida ********************************
+6) NO TOCAR NINGUNA OPCIÓN AQUÍ
+****************************************************************************************
+
+************************************** Hardware ****************************************
+7) Memoria base - Establecer la memoria RAM que deseas que tenga tu máquina virtual 
+(RAM mínima = 4096 MB)
+8) Procesadores - Establecer el número de núcleos que deseas que tenga tu máquina 
+virtual (Núcleos mínimos = 2)
+9) Desmarcar "Habilitar EFI" si aparece habilitada
+****************************************************************************************
+
+************************************* Disco Duro ***************************************
+7) Ubicación y tamaño del archivo de disco - Establecer la ruta donde quieres guardar
+tu disco virtual creado y el espacio que deseas que tenga. 
+(Espacio mínimo = 25 GB)
+8) Resto de opciones de este apartado dejarlas por defecto
+****************************************************************************************
+
+----------------------------------------------------------------------------------------
+
+--------------------------------- INSTALACIÓN DE UBUNTU --------------------------------
+
+****************************************************************************************
+1) Una vez creada la máquina virtual, ejecutarla para proceder a la instalación del
+sistema operativo. Cargará la pantalla del sistema operativo con dos opciones y tendrá 
+que seleccionar la opción "Try or Install Ubuntu". Esperar hasta que cargue el sistema
+operativo y salga la pantalla para elegir idioma.
+2) Deshabilitar la red en Máquina > Red.
+3) Elegir el idioma que quieres que posea tu sistema operativo. Clicar "Next".
+4) En accesibilidad, clicar "Next".
+5) Elegir la región del teclado, es decir, si es teclado UK, Spanish (con caracteres
+españoles), etc. Clicar "Next".
+6) Seleccionar "Install Ubuntu". Clicar "Next".
+7) Elegir si en la instalación se quiere ayuda paso a paso, usuarios que ya tienen un 
+sistema operativo mediante un archivo autoinstall.yaml o usuarios que poseen un 
+autoinstall via landscape. En nuestro caso, seleccionamos la primera opción. Clicar
+"Next".
+8) Elegir las aplicaciones que se quieren instalar, si las esenciales o una lista más 
+extendida. Clicar "Next".
+9) No marcar ninguna casilla de "third-party apps" y clicar "Next".
+10) Elegir como se quiere la instalación, si una instalación limpia de Ubuntu o una
+instalación manual donde se puede personalizar el setup del disco. Clicar "Next".
+11) Elegir si se quiere encriptar el sistema, es decir, tener una contraseña al encender
+la máquina virtual. Clicar"Next".
+12) Crear cuenta introduciendo usuario, nombre que quieres que tenga el ordenador,
+contraseña, y activar la casilla de "Requerir contraseña para iniciar sesión" si se
+desea tener un método de inicio de sesión para reforzar la seguridad del equipo. Clicar
+"Next".
+13) Seleccionar localidad y zona horaria de tu ubicación. Clicar "Next".
+14) Aparecerá una pantalla con las elecciones que has hecho. Una vez revisadas, clique
+en "Install". A continuación, aparecerá una pantalla donde procederá a instalarse el
+sistema operativo con las aplicaciones y opciones seleccionadas. Esperar hasta que 
+finalice.
+15) Una vez finalizado, clicar en "Restart now". El equipo se reiniciará y el sistema 
+operativo estará listo para usarse.
+****************************************************************************************
+
+----------------------------------------------------------------------------------------
+
+(Añadir fotos del proceso)
+	
+4. Finalización: Tras definir el usuario, nombre de equipo y contraseña, quité la ISO de la configuración de VirtualBox y se reinició el sistema.
+
+
+Fase 3: Configuración del gestor de arranque (GRUB)
+
+1. Se editó el archivo de configuración de GRUB mediante sudo nano /etc/default/grub para garantizar que el menú de selección fuera visible durante 10 segundos y detectara otros sistemas operativos instalados (GRUB_TIMEOUT_STYLE=menu, GRUB_TIMEOUT=10 y GRUB_DISABLE_OS_PROBER=false).
+2. Se aplicaron los cambios ejecutando sudo update-grub, confirmando la detección de Windows Boot Manager.
+
+
+Problemas encontrados: 
+
+- Al instalar previamente un Windows 10 de 32 bits, VirtualBox restringió el procesador virtual a 32 bits y desactivó IO-APIC, impidiendo el arranque del instalador de Ubuntu 26.04 LTS de 64 bits [amd64] hasta reconfigurar el perfil de la VM a 64 bits.
+- Una vez linux instalado, se iniciaba ubuntu automaticamente sin un gestor de arranque, por lo que tuve que habilitar GRUB_DISABLE_OS_PROBER=false y GRUB_TIMEOUT_STYLE=menu en /etc/default/grub para que el gestor de arranque detectara la partición de Windows y mostrara el menú de selección.
+
+
+Justificación técnica
+
+• Windows 10: He elegido este windows como sistema operativo propietario de referencia por ser el estándar en entornos de oficina. Además, permite ejecutar herramientas de diseño, aplicaciones ofimáticas como word o excel, y software comercial que no dispone de soporte oficial en sistemas Unix/Linux.
+
+• Ubuntu 26.04 LTS: He elegido esta distribución GNU/Linux por tratarse de una versión con soporte de actualizaciones y seguridad, lo que garantiza estabilidad en entornos de producción y aprendizaje. Además, se ha implementado para desplegar servidores locales, contenedores, bases de datos y control de versiones.
