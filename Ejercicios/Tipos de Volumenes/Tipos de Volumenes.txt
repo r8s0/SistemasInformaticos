@@ -1,0 +1,14 @@
+VOLUMEN DISTRIBUIDO -> Similar a RAID 0
+
+Se juntan las memorias para crear un solo disco duro con mayor espacio.
+Es por ello que al romperlo, se rompen ambos discos y se fastidia todo sin conservar ningún archivo de los presentes en el disco.
+
+VOLUMEN SECCIONADO -> Similar a RAID 0
+
+Se juntan las memorias para crear un disco duro con mayor espacio, pero una parte de los archivos se guarda en el Disco 1 y otra parte de los archivos en el Disco 2, nunca todo en un mismo disco.
+Es por ello que al romperlo, se rompen ambos discos y se fastidia todo dado que no se puede leer el archivo entero.
+
+VOLUMEN REFLEJADO -> Similar a RAID 1
+
+No se juntan las memorias, sin embargo, mientras estén en correcto funcionamiento, la memoria reflejada irá copiando cada uno de los archivos introducidos en el disco principal a su propia memoria, creando un espejo.
+Una vez decidimos romper uno de ellos, ambos discos dejan de sincronizarse pero el disco reflejado guarda toda la información copiada del disco principal, solo que ya si metemos un archivo en el disco principal no se copiará en el reflejado. Es decir, si decidimos romper un disco reflejado, únicamente se romperá la sincronización entre ellos.
