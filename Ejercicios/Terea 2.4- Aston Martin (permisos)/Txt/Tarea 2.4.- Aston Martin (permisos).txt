@@ -1,0 +1,25 @@
+Quien debería acceder a:
+
+- Briefing: (Contiene reuniones previas y posteriores a la carrera, estrategias de neumáticos, análisis de rivales y notas de pista)
+
+	· Dueño (GRP_Direccion)		Control total		Máximo responsable del equipo; tiene acceso completo a toda la estrategia deportiva.
+	· Ingenieros (GRP_Ingenieros)	Modificar		Son quienes preparan las presentaciones, suben los datos de estrategia y toman notas durante el briefing.
+	· Pilotos (GRP_Pilotos)		Lectura y ejecución	Deben abrir y estudiar toda la documentación estratégica y presentaciones, pero sin poder editar ni borrar los archivos originales.
+
+- Hospitality: (Contiene listas de invitados VIP, catering, pases de paddock, presupuestos de eventos y logística de invitados).
+
+	· Dueño (GRP_Direccion)		Control total				Gestiona presupuestos, invitados VIP y relaciones públicas del equipo.
+	· Ingenieros (GRP_Ingenieros)	Sin acceso (Quitar de la lista)		Es un área puramente logística y de relaciones públicas ajena al departamento técnico.
+	· Pilotos (GRP_Pilotos)		Sin acceso (o solo Lectura)		No gestionan eventos ni invitados. Solo se les daría Lectura si en esa carpeta se guarda su horario de visitas VIP.
+
+- Pilotos: Aquí prima la operativa deportiva diaria (agendas, telemetrías compartidas, informes de pista).
+
+	· Dueño (GRP_Direccion)		Control total		Supervisión total sobre el personal y los activos del equipo.
+	· Ingenieros (GRP_Ingenieros)	Modificar		Necesitan subir, actualizar y editar los informes de rendimiento, telemetría y reglajes de los pilotos.
+	· Pilotos (GRP_Pilotos)		Lectura y ejecución	Pueden entrar para consultar sus horarios, informes médicos y análisis de pista, pero no pueden modificar ni borrar los archivos técnicos.
+
+- Partners: Aquí prima la confidencialidad comercial y financiera.
+
+	· Dueño (GRP_Direccion)		Control total				Negocia, firma y gestiona todos los acuerdos con patrocinadores.
+	· Ingenieros (GRP_Ingenieros)	Lectura (o Sin acceso)			Si el ejercicio asume que hay fichas técnicas de socios, dales solo Lectura para que consulten sin borrar contratos. Si es 										puramente comercial, Sin acceso (eliminarlos de la lista).
+	· Pilotos (GRP_Pilotos)		Sin acceso (Quitar de la lista)		No necesitan entrar a ver acuerdos comerciales ni tarifas de patrocinio.
